@@ -1,1 +1,0 @@
-http://api.worldweatheronline.com/premium/v1/past-weather.ashx?key=1950e304a63b4882824114208170205&q=Dallas&date=2017-01-01&format=json
