@@ -31,7 +31,7 @@ with open(DATA_PATH+KEYFILE) as f:
     API_KEY = f.read()
     print(API_KEY)
             
-with open(DATA_PATH+FILENAME, newline='') as file:
+with open(DATA_PATH+FILENAME) as file:
     data = pd.read_csv(file)
     for index, row in data.iterrows():
         origin = row["ORIGIN_CITY_NAME"]
@@ -69,9 +69,11 @@ with open(DATA_PATH+FILENAME, newline='') as file:
         
         pressure = filtered_result['pressure']
         data.set_value(index,'PRESSURE',pressure)
-        
+    
+    #Remove column (dont know where it comes from)    
+    data.drop('Unnamed: 29', axis=1, inplace=True) #Remove 
     #WRITE MODIFIED DATA TO FILE
-    data.to_csv(DATA_PATH+"raw_with_weather.csv",encoding='utf-8')
+    data.to_csv(DATA_PATH+"raw_with_weather.csv",encoding='utf-8',index=False)
 
         
 
